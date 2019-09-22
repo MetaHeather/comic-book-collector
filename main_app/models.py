@@ -8,12 +8,21 @@ TIMEOFDAY =(
     ('E', 'Evening')
 )
 
+class Shop(models.Model):
+    name = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('shops_detail', kwargs={'pk': self.id})
+
 class Comic(models.Model):
     title = models.CharField(max_length=100)
     issue = models.IntegerField()
     author = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     publishdate = models.DateField('publish date')
+    shops = models.ManyToManyField(Shop)
     def __str__(self):
         return self.title
     def get_absolute_url(self):

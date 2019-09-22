@@ -16,4 +16,13 @@ urlpatterns = [
     path('comics/<int:pk>/delete/', views.ComicDelete.as_view(), name='comics_delete'),
     #add a purchase
     path('comics/<int:comic_id>/add_purchase/', views.add_purchase, name='add_purchase'),
+    # associate a toy with a cat (M:M)
+    path('comics/<int:comic_id>/assoc_shop/<int:shop_id>/', views.assoc_shop, name='assoc_shop'),
+    # unassociate a toy and cat
+    path('comics/<int:comic_id>/unassoc_shop/<int:shop_id>/', views.unassoc_shop, name='unassoc_shop'),
+    path('shops/', views.ShopList.as_view(), name='shops_index'),
+    path('shops/<int:pk>/', views.ShopDetail.as_view(), name='shops_detail'),
+    path('shops/create/', views.ShopCreate.as_view(), name='shops_create'),
+    path('shops/<int:pk>/update/', views.ShopUpdate.as_view(), name='shops_update'),
+    path('shops/<int:pk>/delete/', views.ShopDelete.as_view(), name='shops_delete'),
 ]
