@@ -8,6 +8,7 @@
   <title>Comic Collector</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
   <header class="navbar-fixed">
@@ -17,8 +18,9 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;ComicCollector</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/about">About</a></li>
-          <li><a href="/comics">View All My Comics</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'comics_create' %}">Add a Comic</a></li>
+          <li><a href="{% url 'index' %}">View All My Comics</a></li>
         </ul>
       </div>
     </nav>
