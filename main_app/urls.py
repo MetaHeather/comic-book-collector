@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -27,4 +27,8 @@ urlpatterns = [
     path('shops/create/', views.ShopCreate.as_view(), name='shops_create'),
     path('shops/<int:pk>/update/', views.ShopUpdate.as_view(), name='shops_update'),
     path('shops/<int:pk>/delete/', views.ShopDelete.as_view(), name='shops_delete'),
+    #signup a new account
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup', views.signup, name='signup'),
+
 ]
